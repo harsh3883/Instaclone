@@ -26,7 +26,6 @@ const App = () => (
 
       {/* Right Sidebar */}
       <div className="right-sidebar">
-        {/* This will be empty for now but can be filled later */}
         <DirectMessages/>
       </div>
     </div>
