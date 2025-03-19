@@ -1,19 +1,65 @@
-.navbar h2 {
-  font-size: 24px;
+.navbar {
+  width: 250px;
+  height: 100vh;
+  background-color: #ffffff;
+  border-right: 1px solid #ddd;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: fixed;
+  left: 0;
+  top: 0;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+nav ul li {
   margin-bottom: 20px;
 }
 
-.navbar ul {
-  list-style: none;
-  padding: 0;
-}
-
-.navbar ul li {
-  margin-bottom: 15px;
-}
-
-.navbar ul li a {
-  text-decoration: none;
+nav ul li a {
+  display: flex;
+  align-items: center;
   font-size: 18px;
   color: #333;
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 8px;
+  transition: background 0.2s ease;
+}
+
+nav ul li a svg {
+  margin-right: 10px;
+}
+
+nav ul li a:hover, 
+nav ul li.active a {
+  background-color: #f0f0f0;
+  font-weight: bold;
+}
+
+.navbar-profile {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  border-top: 1px solid #ddd;
+}
+
+.profile-pic {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
 }

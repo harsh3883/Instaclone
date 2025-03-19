@@ -1,13 +1,14 @@
 /* App Layout */
 .app-container {
   display: flex;
+  justify-content: center;
   width: 100vw;
   height: 100vh;
 }
 
 /* Sidebar (Left - 25% Width) */
 .navbar {
-  width: 25vw;
+  width: 15vw;
   height: 100vh;
   background-color: #ffffff;
   border-right: 1px solid #ddd;
@@ -22,15 +23,15 @@
 
 /* Main Content (Center - 55% Width) */
 .main-content {
-  width: 55vw;
-  margin-left: 25vw; /* To prevent overlap with fixed navbar */
+  width: 55w;
   padding: 20px;
   overflow-y: auto;
+  align-items: center;
 }
 
 /* Right Sidebar (Right - 20% Width) */
 .right-sidebar {
-  width: 20vw;
+  width: 15vw;
   height: 100vh;
   background-color: #f8f8f8;
   border-left: 1px solid #ddd;

@@ -7,6 +7,7 @@ import Profile from "./components/Profile";
 import PostDetails from "./components/PostDetails";
 import './App.css';
 import DirectMessages from "./components/DirectMessages";
+import SearchPage from './components/SearchPage'
 
 const App = () => (
   <Router>
@@ -18,8 +19,9 @@ const App = () => (
       <div className="main-content">
         <Routes>
           <Route path="/" element={<Feed />} />
+          <Route path="/search" element={<SearchPage />} />
           <Route path="/explore" element={<Explore />} />
-          <Route path="/profile" element={<Profile />} />
+          <Route path="/profile/:username" element={<Profile />} />
           <Route path="/post/:id" element={<PostDetails />} />
         </Routes>
       </div>
