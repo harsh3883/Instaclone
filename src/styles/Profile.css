@@ -1,64 +1,51 @@
-.profile-container {
-  max-width: 800px;
-  margin: 20px auto;
+.explore-container {
+  max-width: 1200px;
+  margin: auto;
   padding: 20px;
 }
 
-/* User Profile Section */
-.user-profile {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  margin-bottom: 30px;
+.search-input {
+  width: 100%;
+  padding: 10px;
+  font-size: 18px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-bottom: 20px;
 }
 
-.profile-photo-large {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  object-fit: cover;
-}
-
-.profile-info {
-  display: flex;
-  flex-direction: column;
-}
-
-.profile-info h2 {
-  margin: 0;
-  font-size: 24px;
-}
-
-.profile-info p {
-  margin: 5px 0;
-  font-size: 16px;
-}
-
-/* Suggested Profiles Section */
-.profile-list {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 30px;
-}
-
-.profile-card {
+.loading-text {
   text-align: center;
-  cursor: pointer;
-  text-decoration: none;
-  color: black;
-  background-color: rgb(248, 248, 248);
-  padding: 20px;
-  border-radius: 10%;
+  font-size: 18px;
+  color: gray;
 }
 
-.profile-photo {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  object-fit: cover;
+/* GRID LAYOUT */
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
 }
 
-.profile-name {
-  font-size: 14px;
-  margin-top: 25%;
+.image-item {
+  overflow: hidden;
+  border-radius: 10px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.explore-photo {
+  width: 100%;
+  border-radius: 10px;
+  display: block;
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Hover effect */
+.explore-photo:hover {
+  transform: scale(1.05);
+}
+
+/* Random Large Images */
+.image-item.large {
+  grid-column: span 2;
+  grid-row: span 2;
 }

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "../styles/SearchImages.css";
-
+import { Link } from "react-router-dom";
 const SearchImages = () => {
   const [photos, setPhotos] = useState([]);
 
@@ -38,11 +38,13 @@ const SearchImages = () => {
     <div className="search-images">
       {photos.map((photo) => (
         <div key={photo.unique_id} className="search-card">
+          <Link to={`/search/${photo.id}`}>
           <img
             src={photo.urls.small}
-            alt={photo.alt_description}
+            alt={photo.description}
             className="search-image"
           />
+          </Link>
         </div>
       ))}
     </div>

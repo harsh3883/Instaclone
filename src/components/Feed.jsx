@@ -2,16 +2,13 @@ import React, { useEffect, useState } from "react";
 import Stories from "./Stories";
 import FeedPost from "./FeedPost";
 import "../styles/Feed.css";
+import useFetchPhotos from "../hooks/FetchPhotos";
 
 const Feed = () => {
-  const [photos, setPhotos] = useState([]);
-
-  useEffect(() => {
-    fetch("https://api.unsplash.com/photos?client_id=Fp9ozm0TnGKAmYinPrkTfzhSi8a5KnTKfCBS4DJR3YM")
-      .then((response) => response.json())
-      .then((data) => setPhotos(data))
-      .catch((error) => console.error(error));
-  }, []);
+    const { photos, loading, error } = useFetchPhotos();
+  
+    if (loading) return <p>Loading feed...</p>;
+    if (error) return <p>Error: {error}</p>;
 
   return (
     <div className="home-container">

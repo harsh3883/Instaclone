@@ -1,11 +1,15 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import useFetchPhotos from '../hooks/FetchPhotos';
 import "../styles/Feed.css";
 import { Heart, MessageCircle, Send } from "lucide-react";
 
-const FeedPost = ({ photos }) => {
-  // Manage liked posts state
-  const [likedPosts, setLikedPosts] = useState({});
+const FeedPost = () => {
+  const { photos, loading, error } = useFetchPhotos();
+  const [likedPosts, setLikedPosts] = React.useState({});
+
+  if (loading) return <p>Loading feed...</p>;
+  if (error) return <p>Error: {error}</p>;
 
   // Function to toggle like
   const toggleLike = (postId) => {
