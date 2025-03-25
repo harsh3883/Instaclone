@@ -1,51 +1,80 @@
-.explore-container {
-  max-width: 1200px;
+.profile-container {
+  max-width: 800px;
   margin: auto;
-  padding: 20px;
+  text-align: center;
 }
 
-.search-input {
-  width: 100%;
-  padding: 10px;
-  font-size: 18px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
+.user-profile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
   margin-bottom: 20px;
 }
 
-.loading-text {
-  text-align: center;
-  font-size: 18px;
-  color: gray;
+.profile-photo-large {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
-/* GRID LAYOUT */
-.image-grid {
+.profile-info {
+  text-align: left;
+}
+
+.profile-info h2 {
+  margin: 5px 0;
+}
+
+.follow-btn {
+  padding: 8px 12px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  transition: background 0.3s;
+}
+
+.follow {
+  background-color: blue;
+}
+
+.unfollow {
+  background-color: red;
+}
+
+.user-photos-grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
   gap: 10px;
 }
 
-.image-item {
-  overflow: hidden;
-  border-radius: 10px;
-  transition: transform 0.3s ease-in-out;
-}
-
-.explore-photo {
+.user-photo {
   width: 100%;
   border-radius: 10px;
-  display: block;
-  transition: transform 0.3s ease-in-out;
 }
 
-/* Hover effect */
-.explore-photo:hover {
-  transform: scale(1.05);
+.profile-list {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding-bottom: 10px;
 }
 
-/* Random Large Images */
-.image-item.large {
-  grid-column: span 2;
-  grid-row: span 2;
+.profile-card {
+  text-decoration: none;
+  text-align: center;
+}
+
+.profile-photo {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.profile-name {
+  font-size: 14px;
 }
