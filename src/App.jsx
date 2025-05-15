@@ -4,6 +4,7 @@ import Navbar from "./components/Navbar";
 import Feed from "./components/Feed";
 import Explore from "./components/Explore";
 import Profile from "./components/Profile";
+import MessagesPage from "./components/Message";
 import PostDetails from "./components/PostDetails";
 import './App.css';
 import DirectMessages from "./components/DirectMessages";
@@ -18,15 +19,18 @@ const App = () => (
 
       {/* Main Content Section */}
       <div className="main-content">
-        <Routes>
-          <Route path="/" element={<Feed />} />
-          <Route path="/search" element={<SearchPage />} />
-          <Route path="/create" element={<Create />}/>
-          <Route path="/explore" element={<Explore />} />
-          <Route path="/profile/:username" element={<Profile />} />
-          <Route path="/post/:id" element={<PostDetails />} />
-          <Route path="/search/:id" element={<PostDetails />} />
-        </Routes>
+      <Routes>
+        <Route path="/" element={<Feed />} />
+        <Route path="/search" element={<SearchPage />} />
+        <Route path="/create" element={<Create />} />
+        <Route path="/explore" element={<Explore />} />
+        <Route path="/messages" element={<MessagesPage />} />
+        <Route path="/profile/:username" element={<Profile />} />
+        <Route path="/post/:id" element={<PostDetails />} />
+        <Route path="/search/:id" element={<PostDetails />} />
+        <Route path="/local-post/:id" element={<PostDetails />} /> {/* Add this */}
+    </Routes>
+
       </div>
 
       {/* Right Sidebar */}

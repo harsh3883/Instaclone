@@ -73,7 +73,7 @@ const Profile = () => {
         <p>Loading profile...</p>
       )}
       {/* Suggested Profiles Section */}
-      <h3>Suggested Profiles</h3>
+      <h3 class = "suggested" >Suggested Profiles</h3>
       <div className="profile-list">
         {photos.map((photo) => (
           <a key={photo.id} href={`/profile/${photo.user.username}`} className="profile-card">
