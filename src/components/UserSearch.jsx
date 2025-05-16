@@ -1,14 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 import { Link } from "react-router-dom";
+import debounce from "lodash/debounce";
 import "../styles/UserSearch.css";
 
 const UserSearch = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [users, setUsers] = useState([]);
 
-  const handleSearch = async (query) => {
-    setSearchQuery(query);
-
+  const fetchUsers = async (query) => {
     if (query.trim() === "") {
       setUsers([]);
       return;
@@ -18,12 +17,25 @@ const UserSearch = () => {
       const response = await fetch(
         `https://api.unsplash.com/search/users?query=${query}&client_id=Fp9ozm0TnGKAmYinPrkTfzhSi8a5KnTKfCBS4DJR3YM`
       );
-
       const data = await response.json();
       setUsers(data.results || []);
     } catch (error) {
       console.error("Error fetching users:", error);
     }
+  };
+
+  // Debounced version of fetchUsers
+  const debouncedSearch = useCallback(
+    debounce((query) => {
+      fetchUsers(query);
+    }, 500), // Adjust delay as needed
+    []
+  );
+
+  const handleChange = (e) => {
+    const query = e.target.value;
+    setSearchQuery(query);
+    debouncedSearch(query);
   };
 
   return (
@@ -34,11 +46,11 @@ const UserSearch = () => {
           type="text"
           placeholder="Search for profiles..."
           value={searchQuery}
-          onChange={(e) => handleSearch(e.target.value)}
+          onChange={handleChange}
         />
       </div>
 
-      {/* Search Results (Appears Below Search Bar) */}
+      {/* Search Results */}
       {users.length > 0 && (
         <div className="search-results">
           {users.map((user) => (
@@ -58,4 +70,3 @@ const UserSearch = () => {
 };
 
 export default UserSearch;
-
